@@ -1,12 +1,17 @@
 import React from "react";
 import Aux from "../../../hoc/Auxillary";
+import Button from "../../UI/Button/Button";
 
-const OrderSummary = (props) => {
-  const ingredientSummary = Object.keys(props.ingredients).map((igKey) => {
+const OrderSummary = ({
+  ingredients,
+  purchaseCancelHandler,
+  purchaseContinueHandler,
+}) => {
+  const ingredientSummary = Object.keys(ingredients).map((igKey) => {
     return (
       <li key={igKey}>
         <span style={{ textTransform: "capitalize" }}>{igKey}</span> :{" "}
-        {props.ingredients[igKey]}
+        {ingredients[igKey]}
       </li>
     );
   });
@@ -16,6 +21,12 @@ const OrderSummary = (props) => {
       <p>A delicious burger</p>
       <ul>{ingredientSummary}</ul>
       <p>Continue to Checkout?</p>
+      <Button btnType="Danger" clicked={purchaseCancelHandler}>
+        Cancel
+      </Button>
+      <Button btnType="Success" clicked={purchaseContinueHandler}>
+        Continue
+      </Button>
     </Aux>
   );
 };
