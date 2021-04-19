@@ -12,9 +12,7 @@ const Layout = (props) => {
   };
 
   const sideDrawerToggleHandler = () => {
-    setshowSideDrawer((prevState) => {
-      return { showSideDrawer: !prevState.showSideDrawer };
-    });
+    setshowSideDrawer(!showSideDrawer);
   };
 
   return (
